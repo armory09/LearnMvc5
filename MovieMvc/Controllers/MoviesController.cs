@@ -9,12 +9,12 @@ namespace MovieMvc.Controllers
 {
     public class MoviesController : Controller
     {
-        private MovieDbContext db = new MovieDbContext();
+        private readonly MovieDbContext _db = new MovieDbContext();
 
         // GET: Movies
         public ActionResult Index()
         {
-            return View(db.Movies.ToList());
+            return View(_db.Movies.ToList());
         }
 
         // GET: Movies/Details/5
@@ -24,7 +24,7 @@ namespace MovieMvc.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Movie movie = db.Movies.Find(id);
+            Movie movie = _db.Movies.Find(id);
             if (movie == null)
             {
                 return HttpNotFound();
@@ -47,8 +47,8 @@ namespace MovieMvc.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Movies.Add(movie);
-                db.SaveChanges();
+                _db.Movies.Add(movie);
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -62,7 +62,7 @@ namespace MovieMvc.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Movie movie = db.Movies.Find(id);
+            Movie movie = _db.Movies.Find(id);
             if (movie == null)
             {
                 return HttpNotFound();
@@ -79,8 +79,8 @@ namespace MovieMvc.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(movie).State = EntityState.Modified;
-                db.SaveChanges();
+                _db.Entry(movie).State = EntityState.Modified;
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(movie);
@@ -93,7 +93,7 @@ namespace MovieMvc.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Movie movie = db.Movies.Find(id);
+            Movie movie = _db.Movies.Find(id);
             if (movie == null)
             {
                 return HttpNotFound();
@@ -106,9 +106,9 @@ namespace MovieMvc.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Movie movie = db.Movies.Find(id);
-            db.Movies.Remove(movie);
-            db.SaveChanges();
+            Movie movie = _db.Movies.Find(id);
+            _db.Movies.Remove(movie);
+            _db.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -116,7 +116,7 @@ namespace MovieMvc.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                _db.Dispose();
             }
             base.Dispose(disposing);
         }
