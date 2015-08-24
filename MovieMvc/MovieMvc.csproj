@@ -177,6 +177,14 @@
     <Compile Include="Migrations\201508240122482_Rating.Designer.cs">
       <DependentUpon>201508240122482_Rating.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201508240154343_DataAnnotations.cs" />
+    <Compile Include="Migrations\201508240154343_DataAnnotations.Designer.cs">
+      <DependentUpon>201508240154343_DataAnnotations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201508240201360_AZ.cs" />
+    <Compile Include="Migrations\201508240201360_AZ.Designer.cs">
+      <DependentUpon>201508240201360_AZ.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -264,6 +272,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201508240122482_Rating.resx">
       <DependentUpon>201508240122482_Rating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508240154343_DataAnnotations.resx">
+      <DependentUpon>201508240154343_DataAnnotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508240201360_AZ.resx">
+      <DependentUpon>201508240201360_AZ.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
