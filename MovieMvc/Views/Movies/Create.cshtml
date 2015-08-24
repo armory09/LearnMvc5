@@ -50,7 +50,7 @@
             @Html.LabelFor(s => s.Rating, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(s => s.Rating)
-                @Html.ValidationMessageFor(s => s.Rating)
+                @Html.ValidationMessageFor(s => s.Rating, "", new { @class = "text-danger" })
             </div>
         </div>
 
